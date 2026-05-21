@@ -517,9 +517,48 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ---- FUNCIÓN PARA CARGAR CERTIFICACIONES DINÁMICAS ----
+// ---- FUNCIÓN PARA CARGAR CERTIFICACIONES DINÁMICAS ----
 function cargarCertificacionesDinamicas() {
     const contenedor = document.getElementById('dynamic-certs-container');
     if (!contenedor) return;
+
+    db.collection("certificaciones").get().then((querySnapshot) => {
+        let htmlContenido = "";
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            
+            // Definimos el ícono correcto según la plataforma
+            let iconoClase = "fas fa-award"; 
+            if (data.plataforma && data.plataforma.toLowerCase().includes("trailhead")) {
+                iconoClase = "fab fa-salesforce"; 
+            } else if (data.plataforma && data.plataforma.toLowerCase().includes("linkedin")) {
+                iconoClase = "fab fa-linkedin"; 
+            }
+
+            // Usamos la clase cert-item nativa de tu CSS para mantener tu diseño idéntico
+            htmlContenido += `
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="${iconoClase}"></i></div>
+                    <div class="cert-info">
+                        <h5>${data.titulo}</h5>
+                        <p>${data.plataforma} · ${data.fecha || ''}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        contenedor.innerHTML = htmlContenido;
+
+        // Forzamos a que las animaciones de scroll reconozcan los nuevos elementos
+        if (typeof initScrollAnimations === "function") {
+            initScrollAnimations();
+        }
+
+    }).catch((error) => {
+        console.error("Error al traer certificaciones de Firebase: ", error);
+    });
+}
 
     // Consultamos la colección en Firebase
     db.collection("certificaciones").get().then((querySnapshot) => {
@@ -554,8 +593,7 @@ function cargarCertificacionesDinamicas() {
     }).catch((error) => {
         console.error("Error al traer certificaciones de Firebase: ", error);
     });
-}
-
+    
 // Aseguramos que la función se ejecute automáticamente cuando la página termine de cargar
 window.addEventListener('DOMContentLoaded', () => {
     cargarCertificacionesDinamicas();
