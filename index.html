@@ -305,7 +305,36 @@
     </section>
 
     <footer>
-        <div class=\"footer-inner\">
-            <div class=\"footer-logo\"><span class=\"logo-bracket\">[</span>SS<span class=\"logo-bracket\">]</span></div>
-            <p class=\"footer-copy\">© 2026 Sebastian Adrián Sosa · Built with HTML, CSS & JS</p>
-            <div class=\"footer-socials\">\r\n                <a href=\"mailto:ssosa17@gmail.com\"><i class=\"fas fa-envelope\"></i></a>\r\n                <a href=\"https://www.linkedin.com/in/ssosa17/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>\r\n            </div>\r\n        </div>\r\n    </footer>\r\n\r\n    \r\n    <div class=\"fab-like\">\r\n        <button onclick=\"addLike()\" id=\"like-btn\" class=\"like-btn\" title=\"Like this portfolio\">\r\n            <i class=\"fas fa-heart\"></i>\r\n            <span id=\"like-count\">0</span>\r\n        </button>\r\n    </div>\r\n\r\n    \r\n    <div id=\"pdf-overlay\" class=\"pdf-overlay hidden\">\r\n        <div class=\"pdf-loader\">\r\n            <div class=\"loader-spinner\"></div>\r\n            <p data-en=\"Generating PDF...\" data-es=\"Generando PDF...\">Generating PDF...</p>\r\n        </div>\r\n    </div>\r\n\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js\"></script>\r\n    \r\n    \r\n    <script src=\"https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js\"></script>\r\n    <script src=\"https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js\"></script>\r\n\r\n    <script src=\"script.js\"></script>\r\n</body>\r\n</html>
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-bracket">[</span>SS<span class="logo-bracket">]</span></div>
+            <p class="footer-copy">© 2026 Sebastian Adrián Sosa · Built with HTML, CSS & JS</p>
+            <div class="footer-socials">
+                <a href="mailto:ssosa17@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/ssosa17/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fab-like">
+        <button onclick="addLike()" id="like-btn" class="like-btn" title="Like this portfolio">
+            <i class="fas fa-heart"></i>
+            <span id="like-count">0</span>
+        </button>
+    </div>
+
+    <div id="pdf-overlay" class="pdf-overlay hidden">
+        <div class="pdf-loader">
+            <div class="loader-spinner"></div>
+            <p data-en="Generating PDF..." data-es="Generando PDF...">Generating PDF...</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
